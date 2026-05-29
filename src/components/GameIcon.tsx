@@ -15,7 +15,7 @@ export default function GameIcon({ game, stats, onClick, index }: GameIconProps)
       style={{ animationDelay: `${index * 40}ms`, animationFillMode: "both", opacity: 0 }}
       onClick={onClick}
     >
-      <div className="game-icon w-16 h-16 sm:w-[72px] sm:h-[72px] shadow-lg">
+      <div className="game-icon w-24 h-24 sm:w-28 sm:h-28 shadow-lg">
         <img
           src={game.image}
           alt={game.title}
@@ -31,7 +31,7 @@ export default function GameIcon({ game, stats, onClick, index }: GameIconProps)
         )}
       </div>
 
-      <span className="text-[11px] text-white/60 font-medium text-center leading-tight max-w-[72px] truncate group-hover:text-white/90 transition-colors">
+      <span className="text-xs text-white/60 font-medium text-center leading-tight max-w-[112px] truncate group-hover:text-white/90 transition-colors">
         {game.title}
       </span>
     </div>

@@ -28,7 +28,7 @@ export default function HomePage({ profile }: HomePageProps) {
 
       <div className="flex-1 overflow-y-auto">
         <div className="mx-auto w-full max-w-[980px] px-6 py-6">
-          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-x-4 gap-y-6">
+          <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-x-4 gap-y-7 justify-items-center">
             {GAMES.map((game, i) => (
               <GameIcon
                 key={game.id}
