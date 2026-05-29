@@ -14,13 +14,13 @@ export default function Sidebar({ current, onChange, profile }: SidebarProps) {
     <aside className="flex flex-col items-center py-4 px-3 h-full w-16 shrink-0 bg-background">
       <button
         onClick={() => onChange("home")}
-        className="w-9 h-9 rounded-xl bg-[#f05a3c] flex items-center justify-center text-white shadow-md mb-10"
+        className="w-9 h-9 rounded-xl bg-[#f05a3c] flex items-center justify-center text-white shadow-md"
         title="Главная"
       >
         <Icon name="Gamepad2" size={20} />
       </button>
 
-      <div className="flex flex-col items-center gap-4 flex-1">
+      <div className="flex flex-col items-center gap-4 flex-1 justify-center">
         <NavButton
           icon="House"
           active={current === "home"}
