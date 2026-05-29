@@ -11,7 +11,7 @@ interface SidebarProps {
 
 export default function Sidebar({ current, onChange, profile }: SidebarProps) {
   return (
-    <aside className="flex flex-col items-center py-4 px-3 h-full w-16 shrink-0 bg-white">
+    <aside className="flex flex-col items-center py-4 px-3 h-full w-16 shrink-0 bg-background">
       <button
         onClick={() => onChange("home")}
         className="w-9 h-9 rounded-xl bg-[#f05a3c] flex items-center justify-center text-white shadow-md mb-10"
@@ -35,7 +35,7 @@ export default function Sidebar({ current, onChange, profile }: SidebarProps) {
         />
 
         <button
-          className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-transform"
+          className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center shadow-md hover:scale-105 active:scale-95 transition-transform"
           title="Добавить"
         >
           <Icon name="Plus" size={20} />
@@ -55,7 +55,7 @@ export default function Sidebar({ current, onChange, profile }: SidebarProps) {
         </button>
         <button
           onClick={() => onChange("settings")}
-          className="w-9 h-9 flex items-center justify-center text-black/40 hover:text-black transition-colors"
+          className="w-9 h-9 flex items-center justify-center text-white/40 hover:text-white transition-colors"
           title="Ещё"
         >
           <Icon name="MoreHorizontal" size={20} />
@@ -82,8 +82,8 @@ function NavButton({
       title={title}
       className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all ${
         active
-          ? "bg-black/5 text-black"
-          : "text-black/40 hover:bg-black/5 hover:text-black"
+          ? "bg-white/10 text-white"
+          : "text-white/40 hover:bg-white/5 hover:text-white"
       }`}
     >
       <Icon name={icon} size={20} />
