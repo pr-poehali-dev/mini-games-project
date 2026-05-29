@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { loadProfile, PlayerProfile } from "@/lib/storage";
-import Sidebar from "@/components/Sidebar";
 import HomePage from "@/pages/HomePage";
 import ProfilePage from "@/pages/ProfilePage";
 import SettingsPage from "@/pages/SettingsPage";
@@ -23,9 +22,8 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-background">
-      <Sidebar current={page} onChange={setPage} />
-      <main className="flex-1 overflow-hidden" key={page}>
+    <div className="h-screen w-screen overflow-hidden bg-background">
+      <main className="h-full overflow-hidden" key={page}>
         <div className="h-full animate-fade-in">
           {renderPage()}
         </div>
