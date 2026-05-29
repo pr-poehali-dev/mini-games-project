@@ -3,6 +3,7 @@ import { GAMES } from "@/lib/games";
 import { PlayerProfile } from "@/lib/storage";
 import GameIcon from "@/components/GameIcon";
 import GameModal from "@/components/GameModal";
+import Icon from "@/components/ui/icon";
 
 interface HomePageProps {
   profile: PlayerProfile;
@@ -15,6 +16,16 @@ export default function HomePage({ profile }: HomePageProps) {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
+      <header className="shrink-0 flex items-center justify-center gap-6 px-6 py-4 border-b border-white/[0.05]">
+        <button className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all">
+          <Icon name="Search" size={20} />
+        </button>
+        <button className="relative w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all">
+          <Icon name="Gamepad2" size={20} />
+          <span className="absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-red-500" />
+        </button>
+      </header>
+
       <div className="flex-1 overflow-y-auto">
         <div className="mx-auto w-full max-w-[980px] px-6 py-6">
           <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-x-4 gap-y-6">
