@@ -1,28 +1,35 @@
+import { useState } from "react";
+import { loadProfile, PlayerProfile } from "@/lib/storage";
+import Sidebar from "@/components/Sidebar";
+import HomePage from "@/pages/HomePage";
+import ProfilePage from "@/pages/ProfilePage";
+import SettingsPage from "@/pages/SettingsPage";
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import NotFound from "./pages/NotFound";
+type Page = "home" | "profile" | "settings";
 
-const queryClient = new QueryClient();
+export default function App() {
+  const [page, setPage] = useState<Page>("home");
+  const [profile, setProfile] = useState<PlayerProfile>(loadProfile);
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
-);
+  const renderPage = () => {
+    switch (page) {
+      case "home":
+        return <HomePage profile={profile} />;
+      case "profile":
+        return <ProfilePage profile={profile} onUpdate={setProfile} />;
+      case "settings":
+        return <SettingsPage profile={profile} onUpdate={setProfile} />;
+    }
+  };
 
-export default App;
+  return (
+    <div className="flex h-screen w-screen overflow-hidden bg-background">
+      <Sidebar current={page} onChange={setPage} />
+      <main className="flex-1 overflow-hidden" key={page}>
+        <div className="h-full animate-fade-in">
+          {renderPage()}
+        </div>
+      </main>
+    </div>
+  );
+}
