@@ -16,7 +16,7 @@ export default function HomePage({ profile }: HomePageProps) {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <header className="shrink-0 flex items-center justify-center gap-6 px-6 py-4 border-b border-white/[0.05]">
+      <header className="shrink-0 flex items-center justify-center gap-6 px-6 py-4">
         <button className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all">
           <Icon name="Search" size={20} />
         </button>
