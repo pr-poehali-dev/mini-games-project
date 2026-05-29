@@ -22,43 +22,49 @@ export default function HomePage({ profile }: HomePageProps) {
 
   return (
     <div className="flex flex-col h-full overflow-hidden">
-      <header className="flex items-center justify-between px-6 pt-6 pb-4 shrink-0">
-        <div>
-          <h1 className="text-xl font-semibold text-white">Игры</h1>
-          <p className="text-xs text-white/40 mt-0.5">{GAMES.length} игр доступно</p>
-        </div>
-        <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-violet-600 flex items-center justify-center text-sm">
-          {profile.avatar}
+      <header className="shrink-0 sticky top-0 z-10 bg-background/80 backdrop-blur-xl border-b border-white/[0.05]">
+        <div className="mx-auto w-full max-w-[980px] px-6 pt-5 pb-4">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h1 className="text-xl font-semibold text-white">Игры</h1>
+              <p className="text-xs text-white/40 mt-0.5">{GAMES.length} игр доступно</p>
+            </div>
+            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-violet-600 flex items-center justify-center text-sm shrink-0">
+              {profile.avatar}
+            </div>
+          </div>
+          <div className="flex gap-2 overflow-x-auto scrollbar-none">
+            {CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
+                  selectedCategory === cat
+                    ? "bg-white text-black"
+                    : "text-white/50 hover:text-white/70"
+                }`}
+                style={selectedCategory !== cat ? { background: "rgba(255,255,255,0.08)" } : {}}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
       </header>
 
-      <div className="flex gap-2 px-6 pb-4 shrink-0 overflow-x-auto scrollbar-none">
-        {CATEGORIES.map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setSelectedCategory(cat)}
-            className={`px-3.5 py-1.5 rounded-full text-xs font-medium whitespace-nowrap transition-all ${
-              selectedCategory === cat
-                ? "bg-white text-black"
-                : "bg-white/8 text-white/50 hover:bg-white/12 hover:text-white/70"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      <div className="flex-1 overflow-y-auto px-6 pb-6">
-        <div className="grid grid-cols-4 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-7 xl:grid-cols-8 gap-x-4 gap-y-6">
-          {filtered.map((game, i) => (
-            <GameIcon
-              key={game.id}
-              game={game}
-              stats={profile.gameStats[game.id]}
-              onClick={() => setSelectedGame(game.id)}
-              index={i}
-            />
-          ))}
+      <div className="flex-1 overflow-y-auto">
+        <div className="mx-auto w-full max-w-[980px] px-6 py-6">
+          <div className="grid grid-cols-5 sm:grid-cols-6 md:grid-cols-7 lg:grid-cols-8 gap-x-4 gap-y-6">
+            {filtered.map((game, i) => (
+              <GameIcon
+                key={game.id}
+                game={game}
+                stats={profile.gameStats[game.id]}
+                onClick={() => setSelectedGame(game.id)}
+                index={i}
+              />
+            ))}
+          </div>
         </div>
       </div>
 
