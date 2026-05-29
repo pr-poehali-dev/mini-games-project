@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { loadProfile, PlayerProfile } from "@/lib/storage";
-import Sidebar from "@/components/Sidebar";
+import Topbar from "@/components/Topbar";
 import HomePage from "@/pages/HomePage";
 import ProfilePage from "@/pages/ProfilePage";
 import SettingsPage from "@/pages/SettingsPage";
@@ -23,12 +23,10 @@ export default function App() {
   };
 
   return (
-    <div className="flex h-screen w-screen overflow-hidden bg-background">
-      <Sidebar current={page} onChange={setPage} profile={profile} />
+    <div className="flex flex-col h-screen w-screen overflow-hidden bg-background">
+      <Topbar current={page} onChange={setPage} profile={profile} />
       <main className="flex-1 overflow-hidden" key={page}>
-        <div className="h-full animate-fade-in">
-          {renderPage()}
-        </div>
+        <div className="h-full animate-fade-in">{renderPage()}</div>
       </main>
     </div>
   );
