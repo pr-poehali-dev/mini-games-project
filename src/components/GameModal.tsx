@@ -16,8 +16,9 @@ export default function GameModal({ game, stats, onClose, onPlay }: GameModalPro
       onClick={(e) => e.target === e.currentTarget && onClose()}
     >
       <div className="glass rounded-3xl w-full max-w-sm overflow-hidden animate-pop-in shadow-2xl border border-white/10">
-        <div className={`h-36 bg-gradient-to-br ${game.gradient} flex items-center justify-center relative`}>
-          <span className="text-7xl">{game.emoji}</span>
+        <div className="h-40 relative overflow-hidden">
+          <img src={game.image} alt={game.title} className="w-full h-full object-cover" draggable={false} />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           <button
             onClick={onClose}
             className="absolute top-4 right-4 w-8 h-8 rounded-full bg-black/30 flex items-center justify-center hover:bg-black/50 transition-colors"
@@ -45,7 +46,7 @@ export default function GameModal({ game, stats, onClose, onPlay }: GameModalPro
 
           <button
             onClick={onPlay}
-            className={`w-full py-3.5 rounded-2xl bg-gradient-to-r ${game.gradient} text-white font-semibold text-sm tracking-wide hover:opacity-90 active:scale-95 transition-all`}
+            className="w-full py-3.5 rounded-2xl bg-white text-black font-semibold text-sm tracking-wide hover:opacity-90 active:scale-95 transition-all"
           >
             Играть
           </button>

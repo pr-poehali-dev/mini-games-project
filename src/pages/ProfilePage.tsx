@@ -101,8 +101,8 @@ export default function ProfilePage({ profile, onUpdate }: ProfilePageProps) {
 
       {bestGame && profile.gameStats[bestGame.id]?.highScore > 0 && (
         <div className="glass rounded-3xl p-4 flex items-center gap-3">
-          <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${bestGame.gradient} flex items-center justify-center text-xl`}>
-            {bestGame.emoji}
+          <div className="w-11 h-11 rounded-2xl overflow-hidden shrink-0">
+            <img src={bestGame.image} alt={bestGame.title} className="w-full h-full object-cover" />
           </div>
           <div>
             <div className="text-xs text-white/40 mb-0.5">Лучшая игра</div>
@@ -120,8 +120,8 @@ export default function ProfilePage({ profile, onUpdate }: ProfilePageProps) {
               const stats = profile.gameStats[game.id];
               return (
                 <div key={game.id} className="glass rounded-2xl px-4 py-3 flex items-center gap-3">
-                  <div className={`w-9 h-9 rounded-xl bg-gradient-to-br ${game.gradient} flex items-center justify-center text-lg shrink-0`}>
-                    {game.emoji}
+                  <div className="w-9 h-9 rounded-xl overflow-hidden shrink-0">
+                    <img src={game.image} alt={game.title} className="w-full h-full object-cover" />
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="text-white text-sm font-medium">{game.title}</div>
