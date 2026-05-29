@@ -23,25 +23,25 @@ export default function RightSidebar({ current, onChange, profile }: RightSideba
       <div className="flex flex-col items-center gap-5 flex-1">
         <button
           onClick={() => onChange("home")}
-          className="flex items-center justify-center text-white/40 hover:text-white/70 transition-colors"
+          className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all"
           title="Расписание"
         >
-          <Icon name="CalendarDays" size={22} />
+          <Icon name="CalendarDays" size={20} />
         </button>
 
         <button
           onClick={() => onChange("profile")}
-          className="flex items-center justify-center text-white/40 hover:text-white/70 transition-colors"
+          className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all"
           title="Профиль"
         >
-          <Icon name="UserRound" size={22} />
+          <Icon name="UserRound" size={20} />
         </button>
 
         <button
-          className="flex items-center justify-center text-white/40 hover:text-white/70 transition-colors"
+          className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all"
           title="Добавить"
         >
-          <Icon name="Plus" size={22} />
+          <Icon name="Plus" size={20} />
         </button>
       </div>
     </aside>
