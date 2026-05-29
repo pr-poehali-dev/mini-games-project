@@ -20,7 +20,7 @@ export default function RightSidebar({ current, onChange, profile }: RightSideba
         ?
       </button>
 
-      <div className="flex flex-col items-center gap-5 flex-1">
+      <div className="flex flex-col items-center flex-1">
         <button
           onClick={() => onChange("home")}
           className="w-10 h-10 flex items-center justify-center rounded-2xl text-white/50 hover:text-white hover:bg-white/5 transition-all"
